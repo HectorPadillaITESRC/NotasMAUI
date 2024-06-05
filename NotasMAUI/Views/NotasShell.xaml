@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotasMAUI.Views.NotasShell"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Notas MAUI"
+    Shell.TitleColor="White"
+    Shell.BackgroundColor="#4b461e"
+    Shell.TabBarBackgroundColor="#4b461e"
+    xmlns:viewmodels="clr-namespace:NotasMAUI.ViewModels"
+       xmlns:views="clr-namespace:NotasMAUI.Views"
+    >
+
+    <Shell.BindingContext>
+        <viewmodels:NotasViewModel></viewmodels:NotasViewModel>
+    </Shell.BindingContext>
+    
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:ListaNotas}"
+        Route="Lista" />
+
+
+</Shell>

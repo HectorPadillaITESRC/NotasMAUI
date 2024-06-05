@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotasMAUI.Views.RegistrarView"
+             Title="Registrar Usuario">
+    <VerticalStackLayout Margin="30">
+        <Label FontAttributes="Bold" Margin="0,10">Datos del usuario:</Label>
+        <Label TextColor="#4b461e" >Nombre:</Label>
+        <Entry Text="{Binding Usuario.Nombre}"  BackgroundColor="White"  Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" ></Entry>
+        <Label TextColor="#4b461e"  Grid.Row="2" HorizontalOptions="Start">Contraseña:</Label>
+        <Entry Text="{Binding Usuario.Contraseña}"  BackgroundColor="White" Grid.Row="2" Grid.Column="1" IsPassword="True"></Entry>
+
+        <Label TextColor="Red"  Text="{Binding Error}" HorizontalOptions="Center"></Label>
+        
+        <Button Command="{Binding RegistrarCommand}" Margin="10" HorizontalOptions="Center" BackgroundColor="#49496d" Text="Registrar" Padding="30,10" TextColor="White"></Button>
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotasMAUI.Views.NotaView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Detalles de la nota">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar" Command="{Binding GuardarCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <toolkit:DockLayout>
+        <Entry Text="{Binding Notas.Titulo}" Placeholder="Titulo"  toolkit:DockLayout.DockPosition="Top" ></Entry>
+        <Editor Text="{Binding Notas.Descripcion}" Placeholder="Contenido"></Editor>
+    </toolkit:DockLayout>
+</ContentPage>
