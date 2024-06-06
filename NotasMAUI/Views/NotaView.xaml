@@ -8,7 +8,7 @@
         <ToolbarItem Text="Guardar" Command="{Binding GuardarCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <toolkit:DockLayout>
-        <Entry Text="{Binding Notas.Titulo}" Placeholder="Titulo"  toolkit:DockLayout.DockPosition="Top" ></Entry>
-        <Editor Text="{Binding Notas.Descripcion}" Placeholder="Contenido"></Editor>
+        <Entry Text="{Binding Nota.Titulo}" Placeholder="Titulo"  toolkit:DockLayout.DockPosition="Top" ></Entry>
+        <Editor Text="{Binding Nota.Descripcion}" Placeholder="Contenido"></Editor>
     </toolkit:DockLayout>
 </ContentPage>

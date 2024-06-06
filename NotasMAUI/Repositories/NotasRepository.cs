@@ -24,6 +24,11 @@ namespace NotasMAUI.Repositories
             return conexion.Table<Nota>().OrderBy(x=>x.Titulo);
         }
 
+        public IEnumerable<Nota> GetByUser(int IdUsuario)
+        {
+            return conexion.Table<Nota>().Where(x => x.IdUsuario == IdUsuario).OrderBy(x => x.Titulo);
+        }
+
         public Nota? Get(int id)
         {
             return conexion.Get<Nota>(id);

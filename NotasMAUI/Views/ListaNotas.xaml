@@ -2,24 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NotasMAUI.Views.ListaNotas"
-             Title="Lista de Notas">
+             Title="Lista de Notas" x:Name="vista">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CerrarSesionCommand}" Order="Secondary" Text="Cerrar sesión"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <Grid>
-        <VerticalStackLayout Margin="5">
-            <Grid ColumnDefinitions="*, auto">
-                <Label Margin="5">Titulo de la nota</Label>
-                <Label Grid.Column="1" FontAttributes="Bold" Padding="10,5" Text="&#10095;"></Label>
-                <Label VerticalOptions="End" HeightRequest="1   " BackgroundColor="Gainsboro" Grid.ColumnSpan="2"></Label>
-            </Grid>
-            <Grid ColumnDefinitions="*, auto">
-                <Label Margin="5">Titulo de la nota</Label>
-                <Label Grid.Column="1" FontAttributes="Bold" Padding="10,5" Text="&#10095;"></Label>
-                <Label VerticalOptions="End" HeightRequest="1   " BackgroundColor="Gainsboro" Grid.ColumnSpan="2"></Label>
-            </Grid>
-            <Grid ColumnDefinitions="*, auto">
-                <Label Margin="5">Titulo de la nota</Label>
-                <Label Grid.Column="1" FontAttributes="Bold" Padding="10,5" Text="&#10095;"></Label>
-                <Label VerticalOptions="End" HeightRequest="1   " BackgroundColor="Gainsboro" Grid.ColumnSpan="2"></Label>
-            </Grid>
+        <VerticalStackLayout Margin="5" BindableLayout.ItemsSource="{Binding Notas}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*, auto">
+                        <Label Margin="5" Text="{Binding Titulo}"></Label>
+                        
+                        <Label BackgroundColor="White" Grid.Column="1" FontAttributes="Bold" Padding="10,5" Text="&#10095;">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerDetallesCommand}"
+                                    CommandParameter="{Binding .}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        
+                        <Label VerticalOptions="End" HeightRequest="1   " BackgroundColor="Gainsboro" Grid.ColumnSpan="2"></Label>
+                    </Grid>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
         </VerticalStackLayout>
         <Button Command="{Binding NuevaCommand}" FontAttributes="Bold" BackgroundColor="#49496d" Margin="10" HorizontalOptions="End" VerticalOptions="End"  Text="+" CornerRadius="90 " HeightRequest="50" WidthRequest="50"></Button>
     </Grid>
